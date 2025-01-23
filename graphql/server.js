@@ -8,9 +8,21 @@ const connectDB = require('./database');
 connectDB();
 
 const server = new ApolloServer({
-    typeDefs, resolvers,
+    typeDefs,
+    resolvers,
     context: ({ req }) => {
-        return { token: req.headers.authorization }
+        const token=  req.headers.authorization|| '' ;
+        if(token){
+            try {
+                const decoded=JsonWebTokenError.verify(token,'SECRET_KEY');
+                return {userId:decoded.userId}
+                
+            } catch (error) {
+                console.error('Token inválido',error);
+                
+            }
+        }
+        return {}
     }
 });
 server.listen().then(({ url }) => {

@@ -7,7 +7,7 @@ const createCategory = async ({ name, description }) => {
     }
 
     const newCategory = new Category({ name, description });
-    return await newCategory
+    return await newCategory.save()
 }
 
 const getAllCategories = async () => {

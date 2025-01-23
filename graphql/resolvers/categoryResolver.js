@@ -2,7 +2,7 @@ const categoryService = require('../services/categoryService');
 
 const categoryResolvers = {
     Query: {
-        categories: async () => categoryService.getAllcategories(),
+        categories: async () => categoryService.getAllCategories(),
         category: async (_, { id }) => categoryService.getCategoryById(id)
     },
     Mutation: {
