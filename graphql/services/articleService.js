@@ -8,8 +8,8 @@ const getArticleById = async (id) => {
     return Article.findById(id);
 }
 
-const createArticle = async ({ title, content, categoryId, author }) => {
-    const newArticle = new Article({ title, content, category: categoryId, author });
+const createArticle = async ({ title, content, categoryId, authorId }) => {
+    const newArticle = new Article({ title, content, category: categoryId, author:authorId });
     return newArticle.save()
 }
 

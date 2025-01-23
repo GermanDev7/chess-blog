@@ -6,8 +6,8 @@ const articleResolver = {
         article: async (_, { id }) => articleService.getArticleById(id),
     },
     Mutation: {
-        createArticle: async (_, { title, content, categoryId, author }) =>
-            articleService.createArticle({ title, content, categoryId, author })
+        createArticle: async (_, { title, content, categoryId, authorId }) =>
+            articleService.createArticle({ title, content, categoryId, author:authorId })
     }
 }
 module.exports = articleResolver;

@@ -6,7 +6,7 @@ const articleTypedefs = gql`
         title: String!
         content: String!
         category: Category!
-        author: String!
+        author: User!
         createdAt: String!
     }
     
@@ -20,7 +20,7 @@ const articleTypedefs = gql`
         title: String!,
         content: String!,
         categoryId: ID!,
-        author: String!
+        author: ID!
         ):Article
     }
 
