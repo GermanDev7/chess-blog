@@ -1,8 +1,9 @@
 const mongoose = require('mongoose');
+const dotenv= require('dotenv')
 
 const connectDB = async () => {
     try {
-        await mongoose.connect('mongodb://localhost:27017/chess-blog'
+        await mongoose.connect(process.env.MONGODB_URI
         )
         console.log('Conecixion a la BD Exitosa')
     } catch (err) {
